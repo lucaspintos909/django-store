@@ -1,11 +1,52 @@
+{% load static %} {# Para importar los estaticos #}
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Django Store</title>
+    <title> {{ title }} </title>
+
+    {#---------- Google fonts ----------#}
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+    {#----------------------------------#}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/globals.css' %}">
 </head>
 <body>
-    <h1>Prueba</h1>
+
+    <nav class="p-3 bg-blue-600 shadow-lg flex justify-between items-center">
+        <div class="pl-5 items-center flex">
+            <p class="ml-4 | font-nunito text-3xl text-white font-normal">Biblioteca Digital</p>
+        </div>
+        <div class="mr-3">
+            <button class="
+                px-4 py-2
+                text-black font-bold font-nunito text-lg bg-gray-200 
+                hover:bg-gray-300
+                focus:outline-none focus:ring-4 focus:ring-gray-100 focus:ring-opacity-50
+                rounded-2xl shadow-xl">
+                {{ text_button }}
+            </button>
+        </div>
+    </nav>
+
+    <h1>Productos</h1>
+    <ul> 
+        {% for product in products %}
+            <li>{{ product.title }} - {{ product.price }} - 
+                <span>
+                    {% if product.stock %}
+                        Hay stock
+                    {% else %}
+                        Sin stock
+                    {% endif %}
+                </span>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <script {% static 'js/index.js' %}></script>
 </body>
 </html>
