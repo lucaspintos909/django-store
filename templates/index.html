@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> {{ title }} </title>
-
+    <link rel="shortcut icon" href="{% static 'icons/shopping.svg' %}" />
     {#---------- Google fonts ----------#}
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
@@ -19,6 +19,7 @@
         <nav class="py-4 px-20 bg-blue-600 shadow-lg flex justify-between items-center">
 
             <div class="pl-5 items-center flex">
+                <img class="max-w-3" src="{% static 'icons/app-store.svg' %}" alt="">
                 <p class="ml-4 | font-nunito text-3xl text-white font-normal">Django Store</p>
             </div>
 
@@ -36,21 +37,33 @@
         </nav>
     </header>
     
-    <h1>Productos</h1>
-    <ul> 
-        {% for product in products %}
-            <li>{{ product.title }} - {{ product.price }} - 
-                <span>
-                    {% if product.stock %}
-                        Hay stock
-                    {% else %}
-                        Sin stock
-                    {% endif %}
-                </span>
-            </li>
-        {% endfor %}
-    </ul>
+    <section class="flex justify-center">
+        <div class="rounded-lg | border-solid border-4 border-light-blue-500 | flex justify-center w-max | font-nunito">
 
+            <div class="">
+                <p class="font-nunito">Algunos de nuestros productos</p>
+                <ul> 
+                    {% for product in products %}
+                        <li>{{ product.title }} - {{ product.price }} - 
+                            <span>
+                                {% if product.stock %}
+                                    Hay stock
+                                {% else %}
+                                    Sin stock
+                                {% endif %}
+                            </span>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div>
+                <p>Sobre nosotros</p>
+                <p></p>
+            </div>
+        </div>
+    </section>
+    {#<div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>#}
+    {#Iconos diseñados por <a href="https://www.flaticon.es/autores/flat-icons" title="Flat Icons">Flat Icons</a> from <a href="https://www.flaticon.es/" title="Flaticon"> www.flaticon.es</a>#}
     <script {% static 'js/index.js' %}></script>
 </body>
 </html>
