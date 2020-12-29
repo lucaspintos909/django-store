@@ -6,21 +6,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> {{ title }} </title>
-    <link rel="shortcut icon" href="{% static 'icons/shopping.svg' %}" />
+    <link rel="shortcut icon" href="{% static 'icons/shopping-cart.svg' %}" />
     {#---------- Google fonts ----------#}
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Nunito&display=swap" rel="stylesheet">
     {#----------------------------------#}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="stylesheet" href="{% static 'css/globals.css' %}">
+    <link rel="stylesheet" href="{% static 'css/globals-styles.css' %}">
 </head>
 <body>
     <header>
-        <nav class="py-4 px-20 bg-blue-600 shadow-lg flex justify-between items-center">
+        <nav class="py-2 px-20 bg-blue-600 shadow-lg flex justify-between items-center">
 
             <div class="pl-5 items-center flex">
-                <img class="max-w-3" src="{% static 'icons/app-store.svg' %}" alt="">
+                <img class="max-w-3" src="{% static 'icons/trusted-seller.svg' %}" alt="">
                 <p class="ml-4 | font-nunito text-3xl text-white font-normal">Django Store</p>
+                <span class="text-white font-caveat mt-6 mx-1" style="font-family = Caveat">by Lucas Pintos</span>
             </div>
 
             <div class="mr-3">
@@ -38,11 +39,11 @@
     </header>
     
     <section class="flex justify-center">
-        <div class="rounded-lg | border-solid border-4 border-light-blue-500 | flex justify-center w-max | font-nunito">
+        <div class="rounded-lg p-3 mt-10  shadow-lg | border-solid border-4 border-blue-500 | flex justify-center w-max | font-nunito">
 
-            <div class="">
-                <p class="font-nunito">Algunos de nuestros productos</p>
-                <ul> 
+            <div class="p-4">
+                <p class="font-nunito text-center text-xl pb-2">Algunos de nuestros productos</p>
+                <ul class=""> 
                     {% for product in products %}
                         <li>{{ product.title }} - {{ product.price }} - 
                             <span>
@@ -56,9 +57,9 @@
                     {% endfor %}
                 </ul>
             </div>
-            <div>
-                <p>Sobre nosotros</p>
-                <p></p>
+            <div class="p-4 max-w-md">
+                <p class="text-xl m-auto pb-2">Sobre nosotros</p>
+                <p class="text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident voluptatem ad aliquam architecto minus in hic consequatur corrupti non harum nostrum unde ab ipsam adipisci eaque vitae asperiores, illo ullam!</p>
             </div>
         </div>
     </section>
