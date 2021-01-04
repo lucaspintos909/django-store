@@ -39,27 +39,27 @@
     </header>
     
     <section class="flex justify-center">
-        <div class="rounded-lg p-3 mt-10  shadow-lg | border-solid border-4 border-blue-500 | flex justify-center w-max | font-nunito">
+        <div class="rounded-lg px-3 py-2 mt-10  shadow-lg | border-solid border-4 border-blue-500 | flex justify-center w-max | font-nunito">
 
-            <div class="p-4">
+            <div class="p-7">
                 <p class="font-nunito text-center text-xl pb-2">Algunos de nuestros productos</p>
-                <ul class=""> 
+                <ul class="text-center mt-5"> 
                     {% for product in products %}
-                        <li>{{ product.title }} - {{ product.price }} - 
-                            <span>
-                                {% if product.stock %}
-                                    Hay stock
-                                {% else %}
-                                    Sin stock
-                                {% endif %}
-                            </span>
+                        <li class="py-1">{{ product.title }} - {{ product.price }} - 
+                            
+                            {% if product.stock %}
+                                <span class="text-green-600">Hay stock</span>
+                            {% else %}
+                                <span class="text-red-500 line-through">Sin stock</span>
+                            {% endif %}
+                            
                         </li>
                     {% endfor %}
                 </ul>
             </div>
-            <div class="p-4 max-w-md">
-                <p class="text-xl m-auto pb-2">Sobre nosotros</p>
-                <p class="text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident voluptatem ad aliquam architecto minus in hic consequatur corrupti non harum nostrum unde ab ipsam adipisci eaque vitae asperiores, illo ullam!</p>
+            <div class="p-7 max-w-md">
+                <p class="text-xl text-center pb-2">Sobre nosotros</p>
+                <p class="text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident voluptatem ad aliquam architecto minus in hic consequatur corrupti non harum nostrum unde ab ipsam adipisci eaque vitae asperiores, illo ullam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident voluptatem ad aliquam architecto minus in hic consequatur corrupti non harum nostrum unde ab ipsam adipisci eaque vitae asperiores, illo ullam!</p>
             </div>
         </div>
     </section>
