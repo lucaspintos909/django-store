@@ -48,15 +48,15 @@
                     {#   Convertir esto en una tabla o grid   #}
                     
                     {% for product in products %}
-                        <li class="py-1">{{ product.title }} - {{ product.price }} - 
-                            
-                            {% if product.stock %}
-                                <span class="text-green-600">Hay stock</span>
-                            {% else %}
-                                <span class="text-red-500 line-through">Sin stock</span>
-                            {% endif %}
-                            
-                        </li>
+                        {% if product.stock %}
+                            <li class="py-1">{{ product.title }} - ${{ product.price }} - 
+                                <span class="text-green-600 font-bold">Hay stock</span>
+                            </li>
+                        {% else %}
+                            <li class="py-1 line-through">{{ product.title }} - ${{ product.price }} - 
+                                <span class="text-red-500 font-bold">Sin stock</span>
+                            </li>
+                        {% endif %}
                     {% endfor %}
                 </ul>
             </div>
