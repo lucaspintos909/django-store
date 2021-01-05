@@ -111,4 +111,5 @@ STATIC_URL = '/static/'
 #### Carpeta para los archivos estaticos
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
+    '/static/',
 ]

@@ -4,6 +4,12 @@
 .font-caveat{
     font-family: 'Caveat', cursive;
 }
-.max-w-3{
+.max-w-4{
     max-width: 4rem;
+}
+.max-w-8{
+    max-width: 8rem;
+}
+.text-1-7rem{
+    font-size: 1.7rem;
 }
