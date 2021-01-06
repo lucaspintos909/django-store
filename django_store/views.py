@@ -1,4 +1,9 @@
 from django.shortcuts import render
+from django.shortcuts import redirect
+
+from django.contrib import messages
+from django.contrib.auth import authenticate
+from django.contrib.auth import login
 
 def index(request):
 
@@ -20,8 +25,20 @@ def index(request):
 
     return render(request, 'index.html', context)
 
-def login(request):
+def login_view(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(username=username, password=password)
+        
+        if user:
+            login(request, user)
+            messages.success(request, 'Bienvenido a Django Store {}.'.format(user.username))
+            return redirect('index')
+        else:
+            messages.error(request, 'Usuairo o contraseña no validos.')
     context={
 
     }
+    
     return render(request, 'users/login.html', context)

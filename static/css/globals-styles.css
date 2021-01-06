@@ -4,12 +4,25 @@
 .font-caveat{
     font-family: 'Caveat', cursive;
 }
-.max-w-4{
+.max-w-4rem{
     max-width: 4rem;
 }
-.max-w-8{
+.max-w-6rem{
+    max-width: 6rem;
+}
+.max-w-8rem{
     max-width: 8rem;
 }
 .text-1-7rem{
     font-size: 1.7rem;
+}
+
+.bg-green-icons{
+    background-color: #1AE5BE;
+}
+.bg-blue-icons{
+    background-color: #0635C9;
+}
+.border-blue-icons{
+    border-color: #0635C9;
 }

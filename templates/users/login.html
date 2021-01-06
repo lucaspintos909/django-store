@@ -15,39 +15,49 @@
 </head>
 <body class="bg-gray-100 font-nunito">
     <div class=" mt-20 m-auto max-w-min bg-white rounded-lg shadow-xl">
-        <h1 class="text-center text-4xl pt-5">Iniciar Sesión</h1>
-        <div class="flex justify-center items-center">
-            <div>
-                <img class="max-w-8 ml-10" src="{% static 'icons/login.svg' %}" alt="">
+        <h1 class="text-center text-4xl py-5">Iniciar Sesión</h1>
+
+        <div class="flex justify-center">
+            <div class=" m-5 p-5 | border-r-4 border-blue-600 rounded ">
+                <h2 class="text-center text-2xl pb-5">Tus datos están protegidos</h2>
+                <div class="flex items-center px-10 py-5">
+                    <img class="max-w-6rem mb-10 mr-7" src="{% static 'icons/lock-user.svg' %}" alt="">
+                    <p class="w-56 text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam ducimus error provident rem voluptatum aspernatur ex, consectetur atque fugit sapiente libero, deserunt quibusdam. Iusto quas magni mollitia aliquam ullam ratione numquam.</p>
+                </div>
+                <div class="flex items-center px-10 py-5">
+                    <p class="w-56 text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto quas magni mollitia aliquam ullam ratione numquam delectus sunt ad tempore. Iusto quas magni mollitia aliquam ullam ratione numquam.</p>
+                    <img class="max-w-6rem mb-10 ml-7" src="{% static 'icons/lock-password.svg' %}" alt="">
+                </div>
             </div>
-            <div class="px-10 pb-10 pt-9">
-                <form action="#" method="post">
-                    <div>
-                        <label class="block" for="username">Nombre de usuario</label>
-                        <input type="text" name="username" placeholder="Su usuario"
-                        class="border-2 border-blue-500 rounded-md p-1 mt-1
-                        focus:outline-none focus:ring-4 focus:ring-blue-300 focus:ring-opacity-50"
-                        >
-                    </div>
-                    <div class="my-10">
-                        <label class="block" for="password">Contraseña<a href=""></a></label>
-                        <input type="password" name="password" placeholder="Su contraseña"
-                        class="border-2 border-blue-500 rounded-md p-1 mt-1
-                        focus:outline-none focus:ring-4 focus:ring-blue-300 focus:ring-opacity-50"
-                        
-                        >
-                    </div>
-                    <div class="text-center">
-                        <button type="submit" class="
-                                    px-10 py-2 mt-5
-                                    text-white font-nunito text-lg bg-green-500 
-                                    hover:bg-green-600
-                                    focus:outline-none focus:ring-4 focus:ring-green-300 focus:ring-opacity-50
-                                    rounded-2xl shadow-lg">
-                                    Ingresar
-                        </button>
-                    </div>
-                </form>
+
+            <div class="flex justify-center items-center">
+                
+                <div class="px-20 pb-10 pt-9 text-center">
+                    
+                    <img class="max-w-8rem mb-5 m-auto" src="{% static 'icons/login.svg' %}" alt="">
+                    
+                    <form action="#" method="post">
+                        {% csrf_token %}
+                        <div>
+                            <label class="block text-left mb-1" for="username">Nombre de usuario</label>
+                            <input type="text" name="username" placeholder="Su usuario"
+                            class="p-1 mt-1 w-52 | border-2 border-blue-icons rounded-md | transition-all duration-150 | focus:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-300 focus:ring-opacity-50"
+                            >
+                        </div>
+                        <div class="my-10">
+                            <label class="block text-left mb-1" for="password">Contraseña<a href=""></a></label>
+                            <input type="password" name="password" placeholder="Su contraseña"
+                            class="p-1 mt-1 w-52 | border-2 border-blue-icons rounded-md | transition-all duration-150 | focus:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-300 focus:ring-opacity-50"
+                            
+                            >
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="px-10 py-2 mt-5 | text-white font-nunito text-lg bg-green-400 | transition-all duration-150 hover:bg-green-500 | hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-green-300 focus:ring-opacity-50 | rounded-2xl shadow-lg">
+                                Ingresar
+                            </button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
