@@ -4,6 +4,7 @@ from django.shortcuts import redirect
 from django.contrib import messages
 from django.contrib.auth import authenticate
 from django.contrib.auth import login
+from django.contrib.auth import logout
 
 def index(request):
 
@@ -33,7 +34,7 @@ def login_view(request):
         
         if user:
             login(request, user)
-            messages.success(request, 'Bienvenido a Django Store {}.'.format(user.username))
+            messages.success(request, 'Bienvenido a Django Store {}'.format(user.username.upper()))
             return redirect('index')
         else:
             messages.error(request, 'Usuario o contraseña no validos.')
@@ -42,3 +43,8 @@ def login_view(request):
     }
     
     return render(request, 'users/login.html', context)
+
+def logout_view(request):
+    logout(request)
+    messages.success(request,'Sesion cerrada.')
+    return redirect('login')
