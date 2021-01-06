@@ -3,12 +3,6 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-
-    <meta http-equiv="Expires" content="0">
-    <meta http-equiv="Last-Modified" content="0">
-    <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> {{ title }} </title>
@@ -31,22 +25,14 @@
             </div>
 
             <div class="mr-3">
-                <button class="
-                    px-4 py-2
-                    text-black font-bold font-nunito text-lg bg-gray-200 
-                    hover:bg-gray-300
-                    focus:outline-none focus:ring-4 focus:ring-gray-100 focus:ring-opacity-50
-                    rounded-2xl shadow-xl">
-                    {{ text_button }}
-                </button>
             </div>
 
         </nav>
     </header>
     
-    <section class="flex justify-between p-3">
+    <section class="flex justify-center p-3">
     
-        <div class="rounded-lg px-3 py-2 mt-10  shadow-lg | border-solid border-4 border-blue-500 | flex justify-center w-max | font-nunito">
+        <div class="rounded-lg px-3 py-2 mt-10 mr-2 shadow-lg | border-solid border-4 border-blue-500 | flex justify-center w-max | font-nunito">
             <div class="p-7 max-w-md">
                 <p class="text-1-7rem text-center font-bold pb-2">Sobre nosotros</p>
                 <img class="max-w-8 mx-auto my-2" src="{% static 'icons/trusted-seller.svg' %}" alt="">
@@ -54,10 +40,10 @@
             </div>
         </div>
 
-        <div class="rounded-lg px-3 py-2 mt-10  shadow-lg | border-solid border-4 border-blue-500 | flex justify-center w-max | font-nunito">
+        <div class="rounded-lg px-3 py-2 mt-10 ml-2 shadow-lg | border-solid border-4 border-blue-500 | flex justify-center w-max | font-nunito">
             <div class="p-7 text-center">
                 <p class="font-nunito font-bold text-1-7rem pb-2">Algunos de nuestros productos</p>
-                    <ul>
+                    <ul class="mt-14">
                         {#   Convertir esto en una tabla o grid   #}
                         
                         {% for product in products %}
@@ -73,7 +59,7 @@
                         {% endfor %}
                     </ul>
                     <button class="
-                            px-4 py-2 my-5
+                            px-4 py-2 mt-14 
                             text-white font-nunito text-lg bg-blue-500 
                             hover:bg-blue-600
                             focus:outline-none focus:ring-4 focus:ring-blue-300 focus:ring-opacity-50
