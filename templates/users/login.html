@@ -1,10 +1,13 @@
 {% load static %}
 <!DOCTYPE html>
+
 <html lang="es">
+
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iniciar sesión</title>
+    <title>Iniciar sesión - Django Store</title>
     <link rel="shortcut icon" href="{% static 'icons/security.svg' %}" />
     {#---------- Google fonts ----------#}
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -12,21 +15,24 @@
     {#----------------------------------#}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/globals-styles.css' %}">
+
 </head>
+
 <body class="bg-gray-100 font-nunito">
     <div class=" mt-20 m-auto max-w-min bg-white rounded-lg shadow-xl">
-        <h1 class="text-center text-4xl py-5">Iniciar Sesión</h1>
+        <h1 class="text-center text-4xl py-10">Iniciar Sesión</h1>
 
         <div class="flex justify-center">
+
             <div class=" m-5 p-5 | border-r-4 border-blue-600 rounded ">
                 <h2 class="text-center text-2xl pb-5">Tus datos están protegidos</h2>
                 <div class="flex items-center px-10 py-5">
-                    <img class="max-w-6rem mb-10 mr-7" src="{% static 'icons/lock-user.svg' %}" alt="">
-                    <p class="w-56 text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam ducimus error provident rem voluptatum aspernatur ex, consectetur atque fugit sapiente libero, deserunt quibusdam. Iusto quas magni mollitia aliquam ullam ratione numquam.</p>
+                    <img class="max-w-6rem mb-7 mr-7" src="{% static 'icons/lock-user.svg' %}" alt="">
+                    <p class="w-56 text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam ducimus error provident rem voluptatum aspernatur ex, consectetur atque fugit sapiente libero, deserunt quibusdam.</p>
                 </div>
                 <div class="flex items-center px-10 py-5">
                     <p class="w-56 text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto quas magni mollitia aliquam ullam ratione numquam delectus sunt ad tempore. Iusto quas magni mollitia aliquam ullam ratione numquam.</p>
-                    <img class="max-w-6rem mb-10 ml-7" src="{% static 'icons/lock-password.svg' %}" alt="">
+                    <img class="max-w-6rem mb-7 ml-7" src="{% static 'icons/lock-password.svg' %}" alt="">
                 </div>
             </div>
 
@@ -59,7 +65,9 @@
                     </form>
                 </div>
             </div>
+
         </div>
+
     </div>
 </body>
 </html>
