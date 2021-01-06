@@ -36,7 +36,7 @@ def login_view(request):
             messages.success(request, 'Bienvenido a Django Store {}.'.format(user.username))
             return redirect('index')
         else:
-            messages.error(request, 'Usuairo o contraseña no validos.')
+            messages.error(request, 'Usuario o contraseña no validos.')
     context={
 
     }

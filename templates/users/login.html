@@ -42,23 +42,30 @@
                     
                     <img class="max-w-8rem mb-5 m-auto" src="{% static 'icons/login.svg' %}" alt="">
                     
-                    <form action="#" method="post">
+                    <form method="post">
                         {% csrf_token %}
                         <div>
                             <label class="block text-left mb-1" for="username">Nombre de usuario</label>
                             <input type="text" name="username" placeholder="Su usuario"
-                            class="p-1 mt-1 w-52 | border-2 border-blue-icons rounded-md | transition-all duration-150 | focus:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-300 focus:ring-opacity-50"
+                            class="p-1 mt-1 w-52 | border-2 border-blue-icons rounded-md | transition-shadow | focus:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-300 focus:ring-opacity-50"
                             >
                         </div>
-                        <div class="my-10">
+                        <div class="mt-10 mb-4">
                             <label class="block text-left mb-1" for="password">Contraseña<a href=""></a></label>
                             <input type="password" name="password" placeholder="Su contraseña"
-                            class="p-1 mt-1 w-52 | border-2 border-blue-icons rounded-md | transition-all duration-150 | focus:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-300 focus:ring-opacity-50"
+                            class="p-1 mt-1 w-52 | border-2 border-blue-icons rounded-md | transition-shadow | focus:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-300 focus:ring-opacity-50"
                             
                             >
                         </div>
+                        {% if messages %}
+                            {% for message in messages %}
+                                {% if message.tags == 'error' %}
+                                    <p class="text-left text-red-500 transition-all ease-in-out">{{ message }}</p>
+                                {% endif %}
+                            {% endfor %}
+                        {% endif %}
                         <div class="text-center">
-                            <button type="submit" class="px-10 py-2 mt-5 | text-white font-nunito text-lg bg-green-400 | transition-all duration-150 hover:bg-green-500 | hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-green-300 focus:ring-opacity-50 | rounded-2xl shadow-lg">
+                            <button type="submit" class="px-10 py-2 mt-5 | text-white font-nunito text-lg bg-green-400 | transition-shadow transition-colors ease-in-out duration-150 hover:bg-green-500 | hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-green-300 focus:ring-opacity-50 | rounded-2xl shadow-lg">
                                 Ingresar
                             </button>
                         </div>
