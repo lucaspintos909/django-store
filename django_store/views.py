@@ -6,6 +6,8 @@ from django.contrib.auth import authenticate
 from django.contrib.auth import login
 from django.contrib.auth import logout
 
+from .forms import RegisterForm
+
 def index(request):
 
     products=[ # ESTO ES PARA PRUEBAS, QUITAR AL INCLUIR BD
@@ -38,13 +40,20 @@ def login_view(request):
             return redirect('index')
         else:
             messages.error(request, 'Usuario o contraseña no validos.')
-    context={
-
-    }
     
-    return render(request, 'users/login.html', context)
+    return render(request, 'users/login.html', {})
 
 def logout_view(request):
     logout(request)
     messages.success(request,'Sesion cerrada.')
     return redirect('login')
+
+def register(request):
+    form = RegisterForm()
+
+    if request.method == "POST":
+        
+
+    return render(request, 'users/register.html',{
+        'form': form
+    })
