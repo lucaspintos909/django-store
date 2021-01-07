@@ -1,7 +1,6 @@
 from django import forms 
 from django.contrib.auth.models import User
 
-
 class RegisterForm(forms.Form):
     username= forms.CharField(label= 'Nombre de usuario',min_length=4, max_length=20, required=True, widget=forms.TextInput(attrs={
         'id':'username',
@@ -42,3 +41,9 @@ class RegisterForm(forms.Form):
 
         if cleaned_data.get('repeated_password') != cleaned_data.get('password'):
             self.add_error('repeated_password', 'Las contraseñas ingresadas no coinciden, verifique los campos y vuelva a intentarlo.')
+
+    def save(self):
+        return User.objects.create_user(
+            self.cleaned_data.get('username'),
+            self.cleaned_data.get('email'),
+            self.cleaned_data.get('password'))

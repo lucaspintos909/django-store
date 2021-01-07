@@ -44,7 +44,10 @@
                     
                     <form method="post">
                         {% csrf_token %}
-                        <div>
+
+                        
+
+                        {% comment %} <div>
                             <label class="block text-left mb-1" for="username">Nombre de usuario</label>
                             <input type="text" name="username" placeholder="Su usuario"
                             class="p-1 mt-1 w-52 | border-2 border-blue-icons rounded-md | transition-shadow | focus:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-300 focus:ring-opacity-50"
@@ -56,7 +59,7 @@
                             class="p-1 mt-1 w-52 | border-2 border-blue-icons rounded-md | transition-shadow duration-200| focus:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-300 focus:ring-opacity-50"
                             required
                             >
-                        </div>
+                        </div> {% endcomment %}
                         {% if messages %}
                             {% for message in messages %}
                                 {% if message.tags == 'error' %}
