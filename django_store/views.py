@@ -8,6 +8,8 @@ from django.contrib.auth import logout
 
 from .forms import RegisterForm
 
+from django.contrib.auth.models import User
+
 def index(request):
 
     products=[ # ESTO ES PARA PRUEBAS, QUITAR AL INCLUIR BD
@@ -56,7 +58,15 @@ def register(request):
         email = form.cleaned_data.get("email")
         password = form.cleaned_data.get("password")
 
-        print(username,email,password)
+        user = User.objects.create_user(username, email, password)
+
+        if user:
+            login(request, user)
+            messages.success(request, "Usuario creado satisfactoriamente")
+            return redirect('index')
+        else:
+            messages.error(request, "El usuario no ha podido ser creado, verifique los datos e intentelo nuevamente.")
+            return redirect('register')
 
     return render(request, 'users/register.html',{
         'form': form
