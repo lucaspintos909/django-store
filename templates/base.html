@@ -1,0 +1,24 @@
+{% load static %} {# Para importar los estaticos #}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="shortcut icon" href="{% static 'icons/shopping-online.svg' %}" />
+    {#---------- Google fonts ----------#}
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Nunito&display=swap" rel="stylesheet">
+    {#----------------------------------#}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/globals-styles.css' %}">
+</head>
+<body class="bg-gray-100 font-nunito">
+
+    {% block content %}
+    
+    {% endblock %}
+
+    <script src="{% static 'js/index.js' %}"></script>
+</body>
+</html>
