@@ -1,24 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+
 {% load static %}
-<!DOCTYPE html>
-
-<html lang="es">
-
-<head>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% comment %} <head>
     <title>Iniciar sesión - Django Store</title>
     <link rel="shortcut icon" href="{% static 'icons/security.svg' %}" />
-    {#---------- Google fonts ----------#}
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Nunito&display=swap" rel="stylesheet">
-    {#----------------------------------#}
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="stylesheet" href="{% static 'css/globals-styles.css' %}">
+</head> {% endcomment %}
 
-</head>
-
-<body class="bg-gray-100 font-nunito">
     <div class=" mt-20 m-auto max-w-min bg-white rounded-lg shadow-xl">
         <h1 class="text-center text-4xl py-10">Iniciar Sesión</h1>
 
@@ -44,10 +32,7 @@
                     
                     <form method="post">
                         {% csrf_token %}
-
-                        
-
-                        {% comment %} <div>
+                        <div>
                             <label class="block text-left mb-1" for="username">Nombre de usuario</label>
                             <input type="text" name="username" placeholder="Su usuario"
                             class="p-1 mt-1 w-52 | border-2 border-blue-icons rounded-md | transition-shadow | focus:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-300 focus:ring-opacity-50"
@@ -59,7 +44,7 @@
                             class="p-1 mt-1 w-52 | border-2 border-blue-icons rounded-md | transition-shadow duration-200| focus:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-300 focus:ring-opacity-50"
                             required
                             >
-                        </div> {% endcomment %}
+                        </div>
                         {% if messages %}
                             {% for message in messages %}
                                 {% if message.tags == 'error' %}
@@ -79,5 +64,5 @@
         </div>
 
     </div>
-</body>
-</html>
+
+{% endblock content %}

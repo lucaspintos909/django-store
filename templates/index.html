@@ -1,21 +1,8 @@
-{% load static %} {# Para importar los estaticos #}
+{% extends 'base.html' %}
+{% block content %}
+    {% load static %} {# Para importar los estaticos #}
 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> {{ title }} </title>
-    <link rel="shortcut icon" href="{% static 'icons/shopping-online.svg' %}" />
-    {#---------- Google fonts ----------#}
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Nunito&display=swap" rel="stylesheet">
-    {#----------------------------------#}
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="stylesheet" href="{% static 'css/globals-styles.css' %}">
-</head>
-<body class="bg-gray-100">
-    <header>
+     <header>
         <nav class="py-2 px-20 bg-white shadow-lg flex justify-between items-center">
 
             <div class="pl-5 items-center flex">
@@ -89,6 +76,4 @@
     </section>
     {#<div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>#}
     {#Iconos diseñados por <a href="https://www.flaticon.es/autores/flat-icons" title="Flat Icons">Flat Icons</a> from <a href="https://www.flaticon.es/" title="Flaticon"> www.flaticon.es</a>#}
-    <script src="{% static 'js/index.js' %}"></script>
-</body>
-</html>
+{% endblock %}
