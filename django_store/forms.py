@@ -29,10 +29,16 @@ class RegisterForm(forms.Form):
             raise forms.ValidationError("El nombre de usuario ingresado ya se encuentra en uso.")
 
         return username
-    
+
     def clean_email(self):
         email = self.cleaned_data.get('email')
         if User.objects.filter(email = email).exists():
             raise forms.ValidationError("El email ingresado ya se encuentra en uso.")
 
         return email
+
+    def clean(self): # 'clean' Se usa para validar campos que dependan de otro
+        cleaned_data = super().clean()
+
+        if cleaned_data.get('repeated_password') != cleaned_data.get('password'):
+            self.add_error('repeated_password', 'Las contraseñas ingresadas no coinciden, verifique los campos y vuelva a intentarlo.')
