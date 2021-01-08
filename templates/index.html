@@ -2,40 +2,44 @@
 {% block content %}
     {% load static %} {# Para importar los estaticos #}
 
-     <header>
-        <nav class="py-2 px-20 bg-white shadow-lg flex justify-between items-center">
+    <header>
+        <nav class="py-3 px-20 bg-white shadow-lg flex justify-between items-center">
 
             <div class="pl-5 items-center flex">
-                <img class="max-w-4rem" src="{% static 'icons/shopping-online.svg' %}" alt="">
-                <p class="ml-4 | font-nunito text-3xl text-black font-normal">Django Store</p>
-                <span class="text-black font-bold font-caveat mt-6 mx-1" style="font-family = Caveat">by Lucas Pintos</span>
+                <p class="font-nunito text-3xl text-black font-normal">Django Store</p>
+                <span class="text-black font-bold font-caveat mt-6 mx-1"
+                      style="font-family = Caveat">by Lucas Pintos</span>
             </div>
 
-            
-
-            {% if request.session.session_key %}
-                
-                {% for message in messages %}
-                    {% if message.tags == 'success' %}
-                        <p class="text-left text-green-500 font-bold">{{ message }}</p>
-                    {% endif %}
-                {% endfor %}
+            {% if user.is_authenticated %}
+                <p class="text-left text-green-500 font-bold">Bienvenido a DjangoStore <span
+                        class="uppercase">{{ user.username }}</span></p>
                 <div class="mr-3">
-                    <a href="usuarios/logout" type="submit" class="px-5 py-2 | text-white font-nunito text-lg bg-blue-500 | transition-all duration-200 ease-in-out duration-150 hover:bg-blue-600 | hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-blue-300 focus:ring-opacity-50 | rounded-2xl shadow-lg">
+                    <a href="{% url 'logout' %}" type="submit"
+                       class="px-5 py-2 | text-white font-nunito text-lg bg-blue-500 | transition-all duration-200 ease-in-out duration-150 hover:bg-blue-600 | hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-blue-300 focus:ring-opacity-50 | rounded-3xl shadow-lg">
                         Cerrar Sesión
                     </a>
                 </div>
             {% else %}
-                <div class="mr-3">
-                    <a href="usuarios/login" type="submit" class="px-5 py-2 | text-white font-nunito text-lg bg-blue-500 | transition-all duration-200 ease-in-out duration-150 hover:bg-blue-600 | hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-blue-300 focus:ring-opacity-50 | rounded-2xl shadow-lg">
-                        Iniciar Sesión
-                    </a>
+                <div class="flex justify-center">
+                    <div class="mr-3">
+                        <a href="{% url 'login' %}" type="submit"
+                           class="px-5 py-2 | text-white font-nunito text-lg bg-blue-500 | transition-all duration-200 ease-in-out duration-150 hover:bg-blue-600 | hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-blue-300 focus:ring-opacity-50 | rounded-3xl shadow-lg">
+                            Iniciar Sesión
+                        </a>
+                    </div>
+                    <div class="mr-3">
+                        <a href="{% url 'register' %}" type="submit"
+                           class="px-5 py-2 | text-white font-nunito text-lg bg-blue-500 | transition-all duration-200 ease-in-out duration-150 hover:bg-blue-600 | hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-blue-300 focus:ring-opacity-50 | rounded-3xl shadow-lg">
+                            Registrarse
+                        </a>
+                    </div>
                 </div>
             {% endif %}
 
         </nav>
     </header>
-    
+
     <section class="flex justify-center p-3">
 
         <div class="rounded-lg px-3 py-2 mt-10 mr-2 shadow-lg | border-solid border-2 border-blue-500 bg-white | flex justify-center w-max | font-nunito">
@@ -45,31 +49,36 @@
                     <img class="max-w-7rem mx-auto my-4" src="{% static 'icons/location.svg' %}" alt="">
                     <img class="max-w-7rem mx-auto my-4" src="{% static 'icons/debit-card.svg' %}" alt="">
                 </div>
-                <p class="text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident voluptatem ad aliquam architecto minus in hic consequatur corrupti non harum nostrum unde ab ipsam adipisci eaque vitae asperiores, illo ullam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident voluptatem ad aliquam architecto minus in hic consequatur corrupti non harum nostrum unde ab ipsam adipisci eaque vitae asperiores, illo ullam!</p>
+                <p class="text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident voluptatem ad
+                    aliquam architecto minus in hic consequatur corrupti non harum nostrum unde ab ipsam adipisci eaque
+                    vitae asperiores, illo ullam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident
+                    voluptatem ad aliquam architecto minus in hic consequatur corrupti non harum nostrum unde ab ipsam
+                    adipisci eaque vitae asperiores, illo ullam!</p>
             </div>
         </div>
 
         <div class="rounded-lg px-3 py-2 mt-10 ml-2 shadow-xl | border-solid border-2 border-blue-500 bg-white | flex justify-center w-max | font-nunito">
             <div class="p-7 text-center">
                 <p class="font-nunito font-bold text-1-7rem pb-2">Algunos de nuestros productos</p>
-                    <ul class="mt-14">
-                        {#   Convertir esto en una tabla o grid   #}
-                        
-                        {% for product in products %}
-                            {% if product.stock %}
-                                <li class="py-1">{{ product.title }} - ${{ product.price }} - 
-                                    <span class="text-green-600 font-bold">Hay stock</span>
-                                </li>
-                            {% else %}
-                                <li class="py-1"><span class="line-through">{{ product.title }} - ${{ product.price }}</span> - 
-                                    <span class="text-red-500 font-bold">Sin stock</span>
-                                </li>
-                            {% endif %}
-                        {% endfor %}
-                    </ul>
-                    <a class="px-4 py-2 mt-10 | text-white font-nunito text-lg bg-blue-500 | hover:bg-blue-600 | focus:outline-none focus:ring-4 focus:ring-blue-300 focus:ring-opacity-50 | rounded-2xl shadow-md">
-                        Ver mas
-                    </a>
+                <ul class="mt-14">
+                    {#   Convertir esto en una tabla o grid   #}
+
+                    {% for product in products %}
+                        {% if product.stock %}
+                            <li class="py-1">{{ product.title }} - ${{ product.price }} -
+                                <span class="text-green-600 font-bold">Hay stock</span>
+                            </li>
+                        {% else %}
+                            <li class="py-1"><span
+                                    class="line-through">{{ product.title }} - ${{ product.price }}</span> -
+                                <span class="text-red-500 font-bold">Sin stock</span>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+                <a class="px-4 py-2 mt-10 | text-white font-nunito text-lg bg-blue-500 | hover:bg-blue-600 | focus:outline-none focus:ring-4 focus:ring-blue-300 focus:ring-opacity-50 | rounded-2xl shadow-md">
+                    Ver mas
+                </a>
             </div>
         </div>
 
