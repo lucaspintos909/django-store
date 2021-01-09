@@ -9,18 +9,12 @@ from django.contrib.auth import logout
 from .forms import RegisterForm
 
 from django.contrib.auth.models import User
+from products.models import Product
 
 def index(request):
 
-    products=[ # ESTO ES PARA PRUEBAS, QUITAR AL INCLUIR BD
-            {'title': 'Camiseta', 'price' : 750, 'stock': True},
-            {'title': 'Buzo', 'price' : 1500, 'stock': True},
-            {'title': 'Crocks', 'price' : 1200, 'stock': False},
-            {'title': 'Campera', 'price' : 1340, 'stock': True},
-            {'title': 'Mochila Adidas', 'price' : 2600, 'stock': False},
-            {'title': 'Mochila Nike', 'price' : 3000, 'stock': True},
-            {'title': 'Gorro de lana', 'price' : 800, 'stock': False}
-    ]
+
+    products= Product.objects.all()
 
     context= {
         'title': 'Django Store',
