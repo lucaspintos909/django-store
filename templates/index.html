@@ -8,7 +8,7 @@
             <div class="pl-5 items-center flex">
                 <p class="font-nunito text-3xl text-black font-normal">DjangoStore</p>
                 <span class="text-black font-bold font-caveat mt-6 mx-1"
-                      style="font-family = Caveat">by Lucas Pintos</span>
+                      style="font-family : Caveat">by Lucas Pintos</span>
             </div>
 
             {% if user.is_authenticated %}
@@ -57,14 +57,15 @@
             </div>
         </div>
 
-        <div class="rounded-lg px-3 py-2 mt-10 ml-2 shadow-xl | border-solid border-2 border-blue-500 bg-white | flex justify-center w-max | font-nunito">
+        <div class="h-full px-3 py-2 mt-10 ml-2 | border-solid border-2 border-blue-500 bg-white shadow-xl rounded-lg | flex justify-center w-max | font-nunito">
             <div class="p-7 text-center">
                 <p class="font-nunito font-bold text-1-7rem pb-2">Productos destacados</p>
-                <ul class="my-14">
+                <ul class="my-14 | items-center grid grid-cols-3 gap-4">
                     {#   Convertir esto en una tabla o grid   #}
 
                     {% for product in products %}
-                        <li class="py-1">{{ product.title }} - ${{ product.price }}</li>
+                        <li class="text-left py-2 col-span-2">{{ product.title }}</li>
+                        <span class="text-right">${{ product.price }}</span>
                     {% endfor %}
                 </ul>
                 <a class="px-4 py-2 mt-10 | text-white font-nunito text-lg bg-blue-500 | hover:bg-blue-600 | focus:outline-none focus:ring-4 focus:ring-blue-300 focus:ring-opacity-50 | rounded-2xl shadow-md">
