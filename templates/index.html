@@ -51,7 +51,7 @@
                 </div>
                 <p class="text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident voluptatem ad
                     aliquam architecto minus in hic consequatur corrupti non harum nostrum unde ab ipsam adipisci eaque
-                    vitae asperiores, illo ullam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident
+                    vitae asperiores, illo ullam! Provident voluptatem ad aliquam architecto minus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident
                     voluptatem ad aliquam architecto minus in hic consequatur corrupti non harum nostrum unde ab ipsam
                     adipisci eaque vitae asperiores, illo ullam!</p>
             </div>
@@ -63,12 +63,12 @@
                 <ul class="my-14 | items-center grid grid-cols-3 gap-4">
                     {#   Convertir esto en una tabla o grid   #}
 
-                    {% for product in products %}
+                    {% for product in product_list %}
                         <li class="text-left py-2 col-span-2">{{ product.title }}</li>
-                        <span class="text-right">${{ product.price }}</span>
+                        <span class="text-right text-green-600">${{ product.price }}</span>
                     {% endfor %}
                 </ul>
-                <a class="px-4 py-2 mt-10 | text-white font-nunito text-lg bg-blue-500 | hover:bg-blue-600 | focus:outline-none focus:ring-4 focus:ring-blue-300 focus:ring-opacity-50 | rounded-2xl shadow-md">
+                <a href="#" class="px-4 py-2 mt-10 | text-white font-nunito text-lg bg-blue-500 | hover:bg-blue-600 | focus:outline-none focus:ring-4 focus:ring-blue-300 focus:ring-opacity-50 | rounded-2xl shadow-md">
                     Ver mas
                 </a>
             </div>
