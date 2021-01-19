@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+{% include 'navbar.html' %}
+
+<section class="flex justify-center p-3">
+
+
+    <div class="rounded-lg px-3 mt-10 px-20 py-10 shadow-lg | border-solid border-2 border-blue-500 bg-white | justify-center w-max | font-nunito">
+
+        <div>
+            <h2 class="text-center text-5xl my-2"> {{ product.title }} </h2>
+        </div>
+        <br>
+        <div class="text-center">
+            <div class="p-16 my-10 text-center bg-gray-400">
+                Imagen
+            </div>
+            <p class="font-bold">$ <span class="text-green-600">{{ product.price }}</span></p>
+            <p class="text-lg">{{ product.description }}</p>
+        </div>
+        
+
+    </div>
+
+    
+</section>
+
+{% endblock content %}
