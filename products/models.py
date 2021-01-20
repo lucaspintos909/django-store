@@ -9,8 +9,9 @@ class Product(models.Model):
     title = models.CharField(max_length = 40)
     description = models.TextField()
     price = models.DecimalField(max_digits = 8, decimal_places = 2, default = 0.0)
+    image = models.ImageField(upload_to='products/', null = False, blank = False)
     slug = models.SlugField(null = False, blank = False, unique = True)
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(auto_now_add = True)
 
     def __str__(self):
         return self.title
@@ -20,7 +21,7 @@ def set_slug(sender, instance, *args, **kwargs):
     if instance.title and not instance.slug:
 
         slug = slugify(instance.title)
-        
+
         while Product.objects.filter(slug=slug).exists():
             slug = slugify(
                 '{}-{}'.format(instance.title, str(uuid.uuid4())[:8] )
