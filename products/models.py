@@ -26,8 +26,8 @@ def set_slug(sender, instance, *args, **kwargs):
             slug = slugify(
                 '{}-{}'.format(instance.title, str(uuid.uuid4())[:8])
             )
+        instance.slug = slug
 
     #instance.slug = slugify(instance.title)
-    instance.slug = slug
 
 pre_save.connect(set_slug, sender = Product)
