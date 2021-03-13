@@ -2,7 +2,7 @@
 # Created by https://www.toptal.com/developers/gitignore/api/django,python
 # Edit at https://www.toptal.com/developers/gitignore?templates=django,python
 
-
+.vscode
 jstools/node_modules
 static/css/style.css
 static/css/style.min.css
