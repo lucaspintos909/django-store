@@ -1,5 +1,7 @@
-<div class="swiper-slide text-left py-2 my-8 mx-1 col-span-2 text-center items-center bg-white rounded-xl shadow-xl border-2 border-solid border-blue-500">
-    <img class="  mx-auto rounded-xl" src="{{ product.image.url }}" alt="{{ product.title }}">
-    <a href="productos/{{product.slug}}" class="block">{{ product.title }}</a>
-    <span class="text-right text-green-600">${{ product.price }}</span>
+<div class="swiper-slide text-left my-8 mx-1 col-span-2 text-center items-center bg-white rounded-xl shadow-xl border-b border-solid border-blue-500">
+    <img class=" mx-auto rounded-t-xl" src="{{ product.image.url }}" alt="{{ product.title }}">
+    <div class="my-3">
+        <a href="productos/{{product.slug}}" class="block">{{ product.title }}</a>
+        <span class="text-right text-green-600">${{ product.price }}</span>
+    </div>
 </div>
