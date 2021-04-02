@@ -4,35 +4,45 @@
 
             <div class="pl-5 items-center flex">
                 <p class="font-nunito text-3xl text-black font-normal">DjangoStore</p>
-                <span class="text-black font-bold font-caveat mt-6 mx-1"
-                      style="font-family : Caveat">by Lucas Pintos</span>   
             </div>
 
-            {% if user.is_authenticated %}
-                <p class="text-left text-green-500 font-bold">Bienvenido a DjangoStore <span
-                        class="uppercase">{{ user.username }}</span></p>
-                <div class="mr-3">
-                    <a href="{% url 'logout' %}" type="submit"
-                       class="flex justify-center items-center | px-5 py-2 | text-white font-nunito text-lg bg-blue-500 | transition-all duration-200 ease-in-out duration-150 hover:bg-blue-600 | hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-blue-300 focus:ring-opacity-50 | rounded-3xl shadow-lg">
-                       <img class=" w-5 mr-2" src="{% static 'icons/logout_icon.svg' %}"> Cerrar Sesión
-                    </a>
-                </div>
-            {% else %}
-                <div class="flex justify-center">
-                    <div class="mr-3">
-                        <a href="{% url 'login' %}" type="submit"
-                           class="flex justify-center items-center | px-5 py-2 | text-white font-nunito text-lg bg-blue-500 | transition-all duration-200 ease-in-out duration-150 hover:bg-blue-600 | hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-blue-300 focus:ring-opacity-50 | rounded-3xl shadow-lg">
-                            <img class=" w-5 mr-2" src="{% static 'icons/login_icon.svg' %}"> Iniciar Sesión
+            <div class="mr-3 flex justify-between items-center">
+                {% if user.is_authenticated %}
+                        <a href="#" type="submit"
+                        class="flex justify-center items-center | p-1 mx-1 | font-nunito text-lg | transition-all ease-in-out | focus:outline-none focus:ring-4 focus:ring-blue-300 focus:ring-opacity-50 | rounded">
+                            Productos
                         </a>
-                    </div>
-                    <div class="mr-3">
-                        <a href="{% url 'register' %}" type="submit"
-                           class="flex justify-center items-center | px-5 py-2 | text-white font-nunito text-lg bg-blue-500 | transition-all duration-200 ease-in-out duration-150 hover:bg-blue-600 | hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-blue-300 focus:ring-opacity-50 | rounded-3xl shadow-lg">
-                            <img class=" w-5 mr-2" src="{% static 'icons/register_icon.svg' %}"> Registrarse
+                        <a href="#" type="submit"
+                        class="flex justify-center items-center | p-1 mx-1 | font-nunito text-lg | transition-all ease-in-out | focus:outline-none focus:ring-4 focus:ring-blue-300 focus:ring-opacity-50 | rounded">
+                            Cuenta
                         </a>
-                    </div>
-                </div>
-            {% endif %}
+                        <div class=" ml-10 bg-red-500  rounded-3xl flex shadow-lg hover:bg-red-600 transition-all">
+                            <div type="submit"
+                            class="flex justify-center items-center | p-1 | bg-blue-500 font-nunito | rounded-3xl">
+                                <img class=" w-5 mx-1" src="{% static 'icons/user.svg' %}">
+                                <span class="font-semibold px-1 text-blue-100">{{ user.username }}</span>
+                            </div>
+                            <a href="{% url 'logout' %}" type="submit"
+                            class="flex justify-center items-center | p-1 | text-white font-nunito text-lg | rounded-r-3xl">
+                                <img class=" w-5 mr-1" src="{% static 'icons/logout_icon.svg' %}">
+                            </a>
+                        </div>
+                {% else %}
+                        <div class="mr-3">
+                            <a href="{% url 'login' %}" type="submit"
+                            class="flex justify-center items-center | px-5 py-2 | text-white font-nunito text-lg bg-blue-500 | transition-all ease-in-out hover:bg-blue-600 | hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-blue-300 focus:ring-opacity-50 | rounded-3xl shadow-lg">
+                                <img class=" w-5 mr-2" src="{% static 'icons/login_icon.svg' %}"> Iniciar Sesión
+                            </a>
+                        </div>
+                        <div class="mr-3">
+                            <a href="{% url 'register' %}" type="submit"
+                            class="flex justify-center items-center | px-5 py-2 | text-white font-nunito text-lg bg-blue-500 | transition-all ease-in-out hover:bg-blue-600 | hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-blue-300 focus:ring-opacity-50 | rounded-3xl shadow-lg">
+                                <img class=" w-5 mr-2" src="{% static 'icons/register_icon.svg' %}"> Registrarse
+                            </a>
+                        </div>
 
+                {% endif %}
+                
+            </div>
         </nav>
     </header>
