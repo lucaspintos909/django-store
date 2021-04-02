@@ -1,3 +1,4 @@
+{% load static %} {# Para importar los estaticos #}
 <header>
         <nav class="py-3 px-20 bg-white shadow-lg flex justify-between items-center">
 
@@ -12,22 +13,22 @@
                         class="uppercase">{{ user.username }}</span></p>
                 <div class="mr-3">
                     <a href="{% url 'logout' %}" type="submit"
-                       class="px-5 py-2 | text-white font-nunito text-lg bg-blue-500 | transition-all duration-200 ease-in-out duration-150 hover:bg-blue-600 | hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-blue-300 focus:ring-opacity-50 | rounded-3xl shadow-lg">
-                        Cerrar Sesión
+                       class="flex justify-center items-center | px-5 py-2 | text-white font-nunito text-lg bg-blue-500 | transition-all duration-200 ease-in-out duration-150 hover:bg-blue-600 | hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-blue-300 focus:ring-opacity-50 | rounded-3xl shadow-lg">
+                       <img class=" w-5 mr-2" src="{% static 'icons/logout_icon.svg' %}"> Cerrar Sesión
                     </a>
                 </div>
             {% else %}
                 <div class="flex justify-center">
                     <div class="mr-3">
                         <a href="{% url 'login' %}" type="submit"
-                           class="px-5 py-2 | text-white font-nunito text-lg bg-blue-500 | transition-all duration-200 ease-in-out duration-150 hover:bg-blue-600 | hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-blue-300 focus:ring-opacity-50 | rounded-3xl shadow-lg">
-                            Iniciar Sesión
+                           class="flex justify-center items-center | px-5 py-2 | text-white font-nunito text-lg bg-blue-500 | transition-all duration-200 ease-in-out duration-150 hover:bg-blue-600 | hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-blue-300 focus:ring-opacity-50 | rounded-3xl shadow-lg">
+                            <img class=" w-5 mr-2" src="{% static 'icons/login_icon.svg' %}"> Iniciar Sesión
                         </a>
                     </div>
                     <div class="mr-3">
                         <a href="{% url 'register' %}" type="submit"
-                           class="px-5 py-2 | text-white font-nunito text-lg bg-blue-500 | transition-all duration-200 ease-in-out duration-150 hover:bg-blue-600 | hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-blue-300 focus:ring-opacity-50 | rounded-3xl shadow-lg">
-                            Registrarse
+                           class="flex justify-center items-center | px-5 py-2 | text-white font-nunito text-lg bg-blue-500 | transition-all duration-200 ease-in-out duration-150 hover:bg-blue-600 | hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-blue-300 focus:ring-opacity-50 | rounded-3xl shadow-lg">
+                            <img class=" w-5 mr-2" src="{% static 'icons/register_icon.svg' %}"> Registrarse
                         </a>
                     </div>
                 </div>
